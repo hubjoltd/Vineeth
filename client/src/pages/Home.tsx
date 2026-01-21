@@ -202,10 +202,10 @@ function HeroSection() {
                       size="lg"
                       className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-medium rounded-none"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
-                      data-testid="button-shop-now"
+                      data-testid="button-explore-legacy"
                       onClick={() => document.getElementById('collections')?.scrollIntoView({ behavior: 'smooth' })}
                     >
-                      SHOP NOW
+                      EXPLORE OUR LEGACY
                     </Button>
                   </motion.div>
                 </div>
