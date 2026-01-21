@@ -637,113 +637,108 @@ function CollectionsSection() {
   ];
 
   return (
-    <section id="collections" className="relative overflow-hidden" aria-labelledby="collections-heading">
-      {/* Gradient background matching design */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-800/90 via-amber-900/80 to-neutral-950" aria-hidden="true" />
-      
-      <div className="relative py-16 sm:py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Header section with two columns */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-16">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
+    <section id="collections" className="py-16 sm:py-24 md:py-32 bg-neutral-900 overflow-hidden" aria-labelledby="collections-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header section with two columns */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-16">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.h3
+              variants={fadeInUp}
+              className="text-primary/80 text-xl sm:text-2xl md:text-3xl font-light mb-3 sm:mb-4"
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              <motion.h3
-                variants={fadeInUp}
-                className="text-amber-200/90 text-xl sm:text-2xl md:text-3xl font-light mb-3 sm:mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                View our<br />latest works
-              </motion.h3>
-            </motion.div>
-            
-            <motion.div
+              View our<br />latest works
+            </motion.h3>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+            className="flex items-end"
+          >
+            <p className="text-neutral-400 text-sm sm:text-base max-w-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              We tried to design a new style to view our new jewellery to be more different than ever
+            </p>
+          </motion.div>
+        </div>
+
+        {/* OUR WORKs heading and cards container */}
+        <div className="relative bg-neutral-950/60 rounded-3xl p-6 sm:p-8 md:p-10">
+          {/* Left description text */}
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-8">
+            <motion.p
               initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
-              className="flex items-end"
+              className="text-neutral-500 text-xs sm:text-sm max-w-[180px] leading-relaxed"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
-              <p className="text-amber-100/60 text-sm sm:text-base max-w-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                We tried to design a new style to view our new jewelrys to be more different than ever
-              </p>
+              Zales combination of statement and simplistic style helps create a look that's as unique as you are
+            </motion.p>
+            
+            {/* OUR WORKs heading */}
+            <motion.div
+              initial={{ opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+              className="flex-1"
+            >
+              <h2 id="collections-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
+                OUR <span className="font-normal">WORKs</span>
+              </h2>
             </motion.div>
           </div>
 
-          {/* OUR WORKs heading and cards container */}
-          <div className="relative bg-neutral-950/80 rounded-3xl p-6 sm:p-8 md:p-10">
-            {/* Left description text */}
-            <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-8">
-              <motion.p
-                initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="text-neutral-500 text-xs sm:text-sm max-w-[180px] leading-relaxed"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+          {/* Scrolling cards */}
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-6 scrollbar-hide -mx-2 px-2">
+            {collections.map((item, index) => (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
+                className="group flex-shrink-0 w-36 sm:w-44 md:w-52"
               >
-                Zales combination of statement and simplistic style helps create a look that's as unique as you are
-              </motion.p>
-              
-              {/* OUR WORKs heading */}
-              <motion.div
-                initial={{ opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
-                className="flex-1"
-              >
-                <h2 id="collections-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  OUR <span className="font-normal">WORKs</span>
-                </h2>
-              </motion.div>
-            </div>
-
-            {/* Scrolling cards */}
-            <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-6 scrollbar-hide -mx-2 px-2">
-              {collections.map((item, index) => (
-                <motion.article
-                  key={item.title}
-                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-                  className="group flex-shrink-0 w-36 sm:w-44 md:w-52"
-                >
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl">
-                    <img
-                      src={item.image}
-                      alt={item.imageAlt}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
-                    
-                    {/* New badge */}
-                    {item.category === "New" && (
-                      <span className="absolute top-3 left-3 bg-amber-500 text-neutral-900 text-[10px] px-2 py-0.5 rounded font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        New
-                      </span>
-                    )}
-                    
-                    {/* Title at bottom of card */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                      <h3 className="text-white text-[10px] sm:text-xs font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        {item.title}
-                      </h3>
-                    </div>
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl">
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
+                  
+                  {/* New badge */}
+                  {item.category === "New" && (
+                    <span className="absolute top-3 left-3 bg-primary text-white text-[10px] px-2 py-0.5 rounded font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      New
+                    </span>
+                  )}
+                  
+                  {/* Title at bottom of card */}
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                    <h3 className="text-white text-[10px] sm:text-xs font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {item.title}
+                    </h3>
                   </div>
-                </motion.article>
-              ))}
-            </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
 
-            {/* Navigation dots */}
-            <div className="flex justify-center gap-2 mt-6">
-              <div className="w-6 h-1.5 bg-white/20 rounded-full" aria-hidden="true" />
-              <div className="w-6 h-1.5 bg-white/60 rounded-full" aria-hidden="true" />
-            </div>
+          {/* Navigation dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            <div className="w-6 h-1.5 bg-white/20 rounded-full" aria-hidden="true" />
+            <div className="w-6 h-1.5 bg-primary rounded-full" aria-hidden="true" />
           </div>
         </div>
       </div>
