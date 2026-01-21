@@ -697,42 +697,50 @@ function CollectionsSection() {
             </motion.div>
           </div>
 
-          {/* Scrolling cards */}
-          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-6 scrollbar-hide -mx-2 px-2">
-            {collections.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-                className="group flex-shrink-0 w-36 sm:w-44 md:w-52"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl">
-                  <img
-                    src={item.image}
-                    alt={item.imageAlt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
-                  
-                  {/* New badge */}
-                  {item.category === "New" && (
-                    <span className="absolute top-3 left-3 bg-primary text-white text-[10px] px-2 py-0.5 rounded font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      New
-                    </span>
-                  )}
-                  
-                  {/* Title at bottom of card */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                    <h3 className="text-white text-[10px] sm:text-xs font-medium uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      {item.title}
-                    </h3>
+          {/* Scrolling cards - staggered layout */}
+          <div className="flex items-end gap-2 sm:gap-3 overflow-x-auto pb-8 pt-4 scrollbar-hide -mx-2 px-4">
+            {collections.map((item, index) => {
+              // Staggered heights and rotations like the reference
+              const rotations = [-3, 2, -1, 3, -2];
+              const heights = ['h-48 sm:h-56', 'h-52 sm:h-64', 'h-56 sm:h-72', 'h-52 sm:h-64', 'h-48 sm:h-56'];
+              const marginTops = ['mt-8', 'mt-4', 'mt-0', 'mt-4', 'mt-8'];
+              
+              return (
+                <motion.article
+                  key={item.title}
+                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
+                  className={`group flex-shrink-0 w-28 sm:w-36 md:w-44 ${marginTops[index] || 'mt-4'}`}
+                  style={{ transform: `rotate(${rotations[index] || 0}deg)` }}
+                >
+                  <div className={`relative ${heights[index] || 'h-52 sm:h-64'} w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] shadow-xl`}>
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" aria-hidden="true" />
+                    
+                    {/* New badge */}
+                    {item.category === "New" && (
+                      <span className="absolute top-2 left-2 bg-primary text-white text-[8px] sm:text-[10px] px-1.5 py-0.5 rounded font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        New
+                      </span>
+                    )}
+                    
+                    {/* Title at bottom of card */}
+                    <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
+                      <h3 className="text-white text-[8px] sm:text-[10px] font-medium uppercase tracking-wider leading-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              );
+            })}
           </div>
 
           {/* Navigation dots */}
