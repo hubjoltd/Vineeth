@@ -20,7 +20,7 @@ import ringHandImage from "@assets/stock_images/elegant_hand_holding_d1529f3a.jp
 import goldRingImage from "@assets/stock_images/woman_wearing_gold_r_ad36c8b2.jpg";
 import hoopEarringsImage from "@assets/stock_images/gold_hoop_earrings_l_eb720eaa.jpg";
 import necklaceImage from "@assets/stock_images/woman_wearing_gold_c_36155047.jpg";
-import heroVideo from "@assets/videos/hero-jewelry.mp4";
+import heroVideo from "@assets/hero-jewelry.mp4";
 
 const createFadeInUp = (shouldReduceMotion: boolean | null) => ({
   initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 },
