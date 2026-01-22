@@ -20,6 +20,7 @@ import ringHandImage from "@assets/stock_images/elegant_hand_holding_d1529f3a.jp
 import goldRingImage from "@assets/stock_images/woman_wearing_gold_r_ad36c8b2.jpg";
 import hoopEarringsImage from "@assets/stock_images/gold_hoop_earrings_l_eb720eaa.jpg";
 import necklaceImage from "@assets/stock_images/woman_wearing_gold_c_36155047.jpg";
+import heroVideo from "@assets/videos/hero-jewelry.mp4";
 
 const createFadeInUp = (shouldReduceMotion: boolean | null) => ({
   initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 },
@@ -129,143 +130,75 @@ function Header() {
 
 function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false })
-  ]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const slides = [
-    {
-      image: heroImage1,
-      title: "MAKE A",
-      highlight: "STATEMENT",
-      subtitle: "Where relationships matter more than revenue",
-      gridImages: [heroImage2, heroImage3, banglesImage, modernImage]
-    },
-    {
-      image: heroImage2,
-      title: "CRAFTED WITH",
-      highlight: "PASSION",
-      subtitle: "60 years of legacy in every piece",
-      gridImages: [heroImage1, bridalImage, weddingImage, heroImage3]
-    },
-    {
-      image: heroImage3,
-      title: "TRENDS CHANGE",
-      highlight: "TRUST DOESN'T",
-      subtitle: "An investment. A memory. A gift.",
-      gridImages: [weddingImage, modernImage, heroImage1, heroImage2]
-    }
-  ];
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    return () => { emblaApi.off("select", onSelect); };
-  }, [emblaApi]);
 
   return (
     <section className="relative min-h-screen bg-neutral-900 pt-16 overflow-hidden" aria-label="Hero section - Vineeth Jewellers">
-      <div ref={emblaRef} className="overflow-hidden h-[calc(100vh-4rem)]">
-        <div className="flex h-full">
-          {slides.map((slide, index) => (
-            <div key={index} className="flex-[0_0_100%] min-w-0 relative">
-              <div className="absolute inset-0 flex">
-                <div className="w-full lg:w-1/2 relative flex flex-col justify-center px-6 sm:px-12 lg:px-16">
-                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/95 to-neutral-900/80 lg:to-transparent z-0" aria-hidden="true" />
-                  <div className="absolute inset-0 lg:hidden">
-                    <img src={slide.image} alt="" className="w-full h-full object-cover opacity-30" aria-hidden="true" />
-                  </div>
-                  
-                  <motion.div
-                    initial={{ opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : -50 }}
-                    animate={{ opacity: selectedIndex === index ? 1 : 0, x: selectedIndex === index ? 0 : -50 }}
-                    transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.2 }}
-                    className="relative z-10"
-                  >
-                    <span className="text-primary/80 text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      Since 1965 • 60 Years of Legacy
-                    </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-2 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {slide.title}
-                    </h1>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {slide.highlight}
-                    </h1>
-                    <p className="text-neutral-400 text-base sm:text-lg mb-8 max-w-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      {slide.subtitle}
-                    </p>
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-medium rounded-none"
-                      style={{ fontFamily: 'Poppins, sans-serif' }}
-                      data-testid="button-visit-store"
-                      onClick={() => document.getElementById('visit')?.scrollIntoView({ behavior: 'smooth' })}
-                    >
-                      VISIT OUR STORE
-                    </Button>
-                  </motion.div>
-                </div>
+      {/* Video Background */}
+      <div className="absolute inset-0 pt-16">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-neutral-900/40" aria-hidden="true" />
+      </div>
 
-                <div className="hidden lg:grid w-1/2 grid-cols-2 grid-rows-2 gap-1 p-1">
-                  {slide.gridImages.map((img, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: shouldReduceMotion ? 1 : 0.9 }}
-                      animate={{ opacity: selectedIndex === index ? 1 : 0, scale: selectedIndex === index ? 1 : 0.9 }}
-                      transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.3 + i * 0.1 }}
-                      className="relative overflow-hidden group"
-                    >
-                      <img src={img} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" aria-hidden="true" />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Content */}
+      <div className="relative z-10 h-[calc(100vh-4rem)] flex items-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full">
+          <motion.div
+            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 1, delay: 0.3 }}
+            className="max-w-2xl"
+          >
+            <span className="text-primary/80 text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Since 1965 • 60 Years of Legacy
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-2 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              TRENDS CHANGE.
+            </h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              TRUST DOESN'T.
+            </h1>
+            <p className="text-neutral-300 text-base sm:text-lg mb-8 max-w-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              Where relationships matter more than revenue. An investment. A memory. A gift.
+            </p>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-medium rounded-none"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+              data-testid="button-visit-store"
+              onClick={() => document.getElementById('visit')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              VISIT OUR STORE
+            </Button>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
-        <button
-          onClick={scrollPrev}
-          className="w-10 h-10 border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-colors"
-          aria-label="Previous slide"
-          data-testid="button-prev-slide"
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
         >
-          <ChevronLeft size={20} />
-        </button>
-        
-        <div className="flex gap-2">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => emblaApi?.scrollTo(i)}
-              className={`w-2 h-2 rounded-full transition-all ${selectedIndex === i ? 'bg-primary w-6' : 'bg-white/30'}`}
-              aria-label={`Go to slide ${i + 1}`}
-              data-testid={`button-slide-${i}`}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={scrollNext}
-          className="w-10 h-10 border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-colors"
-          aria-label="Next slide"
-          data-testid="button-next-slide"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
-
-      <div className="absolute bottom-8 right-8 text-white/30 text-6xl font-light hidden lg:block" style={{ fontFamily: "'Playfair Display', serif" }}>
-        0{selectedIndex + 1}
-      </div>
+          <span className="text-white/50 text-xs tracking-widest uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>Scroll</span>
+          <ChevronDown className="text-white/50" size={20} />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
