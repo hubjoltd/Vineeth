@@ -174,10 +174,10 @@ function HeroSection() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-medium rounded-none"
               style={{ fontFamily: 'Poppins, sans-serif' }}
-              data-testid="button-visit-store"
-              onClick={() => document.getElementById('visit')?.scrollIntoView({ behavior: 'smooth' })}
+              data-testid="button-explore-collections"
+              onClick={() => document.getElementById('collections')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              VISIT OUR STORE
+              EXPLORE OUR COLLECTIONS
             </Button>
           </motion.div>
         </div>
@@ -260,10 +260,10 @@ function AboutSection() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-none"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
-                data-testid="button-explore-more"
-                onClick={() => document.getElementById('visionaries')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-visit-store"
+                onClick={() => document.getElementById('visit')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                EXPLORE OUR LEGACY
+                VISIT OUR STORE
               </Button>
             </motion.div>
           </div>
