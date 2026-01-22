@@ -57,7 +57,7 @@ function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-14 sm:h-16 object-contain" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-16 sm:h-20 object-contain" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -864,7 +864,7 @@ function Footer() {
 function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/919999999999"
+      href="https://wa.me/917331116771"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
