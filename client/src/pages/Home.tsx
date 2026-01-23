@@ -55,9 +55,9 @@ function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-neutral-100/50"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-4 sm:py-4 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-2 sm:py-4 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-10 sm:h-14 md:h-20 object-contain" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[100px] sm:h-14 md:h-20 object-contain" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -146,9 +146,9 @@ function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen bg-neutral-900 pt-[72px] sm:pt-[88px] overflow-hidden" aria-label="Hero section - Vineeth Jewellers">
+    <section className="relative min-h-screen bg-neutral-900 pt-[116px] sm:pt-[88px] overflow-hidden" aria-label="Hero section - Vineeth Jewellers">
       {/* Video Background */}
-      <div className="absolute inset-0 pt-[72px] sm:pt-[88px]">
+      <div className="absolute inset-0 pt-[116px] sm:pt-[88px]">
         <video
           autoPlay
           loop
@@ -164,7 +164,7 @@ function HeroSection() {
       </div>
 
       {/* Content - Centered on mobile, left-aligned on desktop */}
-      <div className="relative z-10 h-[calc(100vh-72px)] sm:h-[calc(100vh-88px)] flex items-center justify-center md:justify-start">
+      <div className="relative z-10 h-[calc(100vh-116px)] sm:h-[calc(100vh-88px)] flex items-center justify-center md:justify-start">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 w-full">
           <motion.div
             initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
