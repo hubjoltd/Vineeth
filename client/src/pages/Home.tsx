@@ -57,7 +57,7 @@ function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-16 sm:h-20 object-contain" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-12 sm:h-16 md:h-20 object-contain" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -132,9 +132,9 @@ function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen bg-neutral-900 pt-16 overflow-hidden" aria-label="Hero section - Vineeth Jewellers">
+    <section className="relative min-h-screen bg-neutral-900 pt-14 sm:pt-16 overflow-hidden" aria-label="Hero section - Vineeth Jewellers">
       {/* Video Background */}
-      <div className="absolute inset-0 pt-16">
+      <div className="absolute inset-0 pt-14 sm:pt-16">
         <video
           autoPlay
           loop
@@ -146,33 +146,33 @@ function HeroSection() {
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-neutral-900/40" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/95 via-neutral-900/80 to-neutral-900/50 md:from-neutral-900 md:via-neutral-900/80 md:to-neutral-900/40" aria-hidden="true" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-[calc(100vh-4rem)] flex items-center">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full">
+      <div className="relative z-10 h-[calc(100vh-3.5rem)] sm:h-[calc(100vh-4rem)] flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 w-full">
           <motion.div
             initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: shouldReduceMotion ? 0 : 1, delay: 0.3 }}
             className="max-w-2xl"
           >
-            <span className="text-primary/80 text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <span className="text-primary/80 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Since 1965 • 60 Years of Legacy
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-2 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white mb-1 sm:mb-2 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               TRENDS CHANGE.
             </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-gold mb-4 sm:mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               TRUST DOESN'T.
             </h1>
-            <p className="text-neutral-300 text-base sm:text-lg mb-8 max-w-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <p className="text-neutral-300 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-md" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Where relationships matter more than revenue. An investment. A memory. A gift.
             </p>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-medium rounded-none"
+              className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium rounded-none"
               style={{ fontFamily: 'Poppins, sans-serif' }}
               data-testid="button-explore-collections"
               onClick={() => document.getElementById('collections')?.scrollIntoView({ behavior: 'smooth' })}
@@ -208,9 +208,9 @@ function AboutSection() {
   
   return (
     <section id="about" className="relative" aria-labelledby="about-heading">
-      <div className="grid lg:grid-cols-2 min-h-screen">
-        <div className="bg-neutral-900 relative py-16 lg:py-0">
-          <div className="lg:absolute lg:inset-0 flex items-center justify-center p-8 lg:p-16">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:min-h-screen">
+        <div className="bg-neutral-900 relative py-12 sm:py-16 lg:py-0 order-1 lg:order-1">
+          <div className="lg:absolute lg:inset-0 flex items-center justify-center p-6 sm:p-8 lg:p-16">
             <motion.div
               initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: shouldReduceMotion ? 1 : 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -223,42 +223,42 @@ function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.3 }}
-                className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 bg-primary flex items-center justify-center"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-primary flex items-center justify-center"
               >
                 <div className="text-center">
-                  <span className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>60</span>
-                  <span className="text-sm sm:text-base block text-white/80 uppercase tracking-wider mt-1" style={{ fontFamily: 'Poppins, sans-serif' }}>Years</span>
-                  <span className="text-xs block text-white/60 uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>of Trust</span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>60</span>
+                  <span className="text-xs sm:text-sm md:text-base block text-white/80 uppercase tracking-wider mt-1" style={{ fontFamily: 'Poppins, sans-serif' }}>Years</span>
+                  <span className="text-[10px] sm:text-xs block text-white/60 uppercase tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>of Trust</span>
                 </div>
               </motion.div>
             </motion.div>
           </div>
         </div>
 
-        <div className="bg-neutral-50 flex items-center py-16 lg:py-0">
-          <div className="px-8 sm:px-12 lg:px-16 xl:px-20 max-w-xl">
+        <div className="bg-neutral-50 flex items-center py-12 sm:py-16 lg:py-24 order-2 lg:order-2">
+          <div className="px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 max-w-xl mx-auto lg:mx-0">
             <motion.div
               initial={{ opacity: shouldReduceMotion ? 1 : 0, x: shouldReduceMotion ? 0 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
-              <span className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <span className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 block" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 About Us
               </span>
-              <h2 id="about-heading" className="text-3xl sm:text-4xl lg:text-5xl font-light text-neutral-900 mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 id="about-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-neutral-900 mb-4 sm:mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 CELEBRATE YOUR <br />
                 <span className="font-medium text-primary">MOMENTS</span> WITH US
               </h2>
-              <p className="text-neutral-700 leading-relaxed mb-6 text-sm sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <p className="text-neutral-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 At Vineeth Jewellers, we believe every piece tells a story. For 60 years, we have been crafting not just jewellery, but memories that last generations.
               </p>
-              <p className="text-neutral-600 leading-relaxed mb-8 text-sm sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <p className="text-neutral-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Our commitment to transparency, quality craftsmanship, and building lasting relationships has made us a trusted name across Hyderabad. Where relationships matter more than revenue.
               </p>
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 rounded-none"
+                className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-none w-full sm:w-auto"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
                 data-testid="button-visit-store"
                 onClick={() => document.getElementById('visit')?.scrollIntoView({ behavior: 'smooth' })}
@@ -309,18 +309,18 @@ function VisionariesSection() {
   ];
 
   return (
-    <section id="visionaries" className="py-16 sm:py-24 md:py-32 bg-neutral-50" aria-labelledby="visionaries-heading">
+    <section id="visionaries" className="py-12 sm:py-20 md:py-28 lg:py-32 bg-neutral-50" aria-labelledby="visionaries-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-10 sm:mb-16 md:mb-20"
         >
           <motion.span
             variants={fadeInUp}
-            className="text-primary text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 block"
+            className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-4 block"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             The Visionaries
@@ -328,14 +328,14 @@ function VisionariesSection() {
           <motion.h2
             id="visionaries-heading"
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-light mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Guardians of the <span className="text-primary font-medium">Promise</span>
           </motion.h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 md:gap-8">
           {visionaries.map((person, index) => (
             <motion.article
               key={person.name}
@@ -468,18 +468,18 @@ function PhilosophySection() {
   ];
 
   return (
-    <section id="philosophy" className="py-16 sm:py-24 md:py-32 bg-neutral-50" aria-labelledby="philosophy-heading">
+    <section id="philosophy" className="py-12 sm:py-20 md:py-28 lg:py-32 bg-neutral-50" aria-labelledby="philosophy-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-10 sm:mb-16 md:mb-20"
         >
           <motion.span
             variants={fadeInUp}
-            className="text-primary text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 block"
+            className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-4 block"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Our Philosophy
@@ -487,14 +487,14 @@ function PhilosophySection() {
           <motion.h2
             id="philosophy-heading"
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-light mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Why <span className="text-primary font-medium">Vineeth Jewellers?</span>
           </motion.h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {philosophies.map((item, index) => (
             <motion.article
               key={item.title}
@@ -563,10 +563,10 @@ function CollectionsSection() {
   ];
 
   return (
-    <section id="collections" className="py-16 sm:py-24 md:py-32 bg-neutral-900 overflow-hidden" aria-labelledby="collections-heading">
+    <section id="collections" className="py-12 sm:py-20 md:py-28 lg:py-32 bg-neutral-900 overflow-hidden" aria-labelledby="collections-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header section with two columns */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-16">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 md:mb-16">
           <motion.div
             initial="initial"
             whileInView="animate"
@@ -575,10 +575,10 @@ function CollectionsSection() {
           >
             <motion.h3
               variants={fadeInUp}
-              className="text-primary/80 text-xl sm:text-2xl md:text-3xl font-light mb-3 sm:mb-4"
+              className="text-primary/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-2 sm:mb-4"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              View our<br />latest works
+              View our<br className="hidden sm:block" /> latest works
             </motion.h3>
           </motion.div>
           
@@ -589,21 +589,21 @@ function CollectionsSection() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             className="flex items-end"
           >
-            <p className="text-neutral-400 text-sm sm:text-base max-w-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            <p className="text-neutral-400 text-xs sm:text-sm md:text-base max-w-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
               We tried to design a new style to view our new jewellery to be more different than ever
             </p>
           </motion.div>
         </div>
 
         {/* OUR WORKs heading and cards container */}
-        <div className="relative bg-neutral-950/60 rounded-3xl p-6 sm:p-8 md:p-10">
+        <div className="relative bg-neutral-950/60 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10">
           {/* Left description text */}
-          <div className="flex flex-col lg:flex-row lg:items-start gap-6 mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
             <motion.p
               initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-neutral-500 text-xs sm:text-sm max-w-[180px] leading-relaxed"
+              className="text-neutral-500 text-[10px] sm:text-xs md:text-sm max-w-[160px] sm:max-w-[180px] leading-relaxed hidden sm:block"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Zales combination of statement and simplistic style helps create a look that's as unique as you are
@@ -617,19 +617,19 @@ function CollectionsSection() {
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
               className="flex-1"
             >
-              <h2 id="collections-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white tracking-wide leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 id="collections-heading" className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white tracking-wide leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Explore our <span className="font-normal">premium collections</span>
               </h2>
             </motion.div>
           </div>
 
           {/* Scrolling cards - staggered layout */}
-          <div className="flex items-end gap-2 sm:gap-3 overflow-x-auto pb-8 pt-4 scrollbar-hide -mx-2 px-4">
+          <div className="flex items-end gap-2 sm:gap-3 overflow-x-auto pb-6 sm:pb-8 pt-2 sm:pt-4 scrollbar-hide -mx-2 px-2 sm:px-4">
             {collections.map((item, index) => {
               // Staggered heights and rotations like the reference
               const rotations = [-3, 2, -1, 3, -2];
-              const heights = ['h-48 sm:h-56', 'h-52 sm:h-64', 'h-56 sm:h-72', 'h-52 sm:h-64', 'h-48 sm:h-56'];
-              const marginTops = ['mt-8', 'mt-4', 'mt-0', 'mt-4', 'mt-8'];
+              const heights = ['h-40 sm:h-48 md:h-56', 'h-44 sm:h-52 md:h-64', 'h-48 sm:h-56 md:h-72', 'h-44 sm:h-52 md:h-64', 'h-40 sm:h-48 md:h-56'];
+              const marginTops = ['mt-6 sm:mt-8', 'mt-3 sm:mt-4', 'mt-0', 'mt-3 sm:mt-4', 'mt-6 sm:mt-8'];
               
               return (
                 <motion.article
@@ -638,10 +638,10 @@ function CollectionsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-                  className={`group flex-shrink-0 w-28 sm:w-36 md:w-44 ${marginTops[index] || 'mt-4'}`}
+                  className={`group flex-shrink-0 w-24 sm:w-32 md:w-40 lg:w-44 ${marginTops[index] || 'mt-4'}`}
                   style={{ transform: `rotate(${rotations[index] || 0}deg)` }}
                 >
-                  <div className={`relative ${heights[index] || 'h-52 sm:h-64'} w-full overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] shadow-xl`}>
+                  <div className={`relative ${heights[index] || 'h-52 sm:h-64'} w-full overflow-hidden rounded-xl sm:rounded-2xl md:rounded-[2rem] shadow-xl`}>
                     <img
                       src={item.image}
                       alt={item.imageAlt}
@@ -701,18 +701,18 @@ function VisitSection() {
   ];
 
   return (
-    <section id="visit" className="py-16 sm:py-24 md:py-32 bg-white" aria-labelledby="visit-heading">
+    <section id="visit" className="py-12 sm:py-20 md:py-28 lg:py-32 bg-white" aria-labelledby="visit-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-10 sm:mb-14 md:mb-16"
         >
           <motion.span
             variants={fadeInUp}
-            className="text-primary text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 block"
+            className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-4 block"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Visit Us
@@ -720,21 +720,21 @@ function VisitSection() {
           <motion.h2
             id="visit-heading"
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-light mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-3 sm:mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Experience the <span className="text-primary font-medium">Difference</span>
           </motion.h2>
           <motion.p
             variants={fadeInUp}
-            className="text-neutral-600 max-w-xl mx-auto text-sm sm:text-base"
+            className="text-neutral-600 max-w-xl mx-auto text-xs sm:text-sm md:text-base px-4"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Walk into our store to witness designs that are government-approved and BIS Hallmarked.
           </motion.p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8 mb-10 sm:mb-14 md:mb-16">
           {locations.map((location, index) => (
             <motion.article
               key={location.name}
@@ -867,11 +867,11 @@ function WhatsAppButton() {
       href="https://wa.me/917331116771"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110"
       data-testid="button-whatsapp-floating"
       aria-label="Chat with us on WhatsApp"
     >
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="white" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7" fill="white" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
     </a>
