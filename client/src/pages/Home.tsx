@@ -570,51 +570,56 @@ function CollectionsSection() {
   
   const collections = [
     {
-      title: "THE ROSELEEN RING",
+      title: "The Roseleen Ring",
       category: "Rings",
-      image: goldRingImage,
-      imageAlt: "Elegant gold ring worn on hand"
+      image: ringHandImage,
+      description: "A blooming masterpiece in 22kt gold."
     },
     {
-      title: "THE ZOE EARRINGS",
+      title: "The Zoe Earrings",
       category: "Earrings",
       image: hoopEarringsImage,
-      imageAlt: "Luxurious gold hoop earrings"
+      description: "Modern hoops for the contemporary woman."
     },
     {
-      title: "THE CHUBBY HOOPS",
-      category: "Hoops",
-      image: banglesImage,
-      imageAlt: "Gold chunky hoop earrings"
-    },
-    {
-      title: "THE HIBISCUS RING II",
-      category: "New",
-      image: modernImage,
-      imageAlt: "Modern designer gold ring"
-    },
-    {
-      title: "THE ELEGANCE CHAIN",
+      title: "The Hoch Necklace",
       category: "Necklaces",
       image: necklaceImage,
-      imageAlt: "Woman wearing elegant gold chain necklace"
+      description: "Intricate craftsmanship in every link."
+    },
+    {
+      title: "Rajwada Bangles",
+      category: "Bangles",
+      image: banglesImage,
+      description: "Traditional royal designs for special occasions."
+    },
+    {
+      title: "Bridal Heritage",
+      category: "Wedding Edit",
+      image: bridalImage,
+      description: "Timeless pieces for your most special day."
+    },
+    {
+      title: "Modern Muse",
+      category: "Modern Edit",
+      image: modernImage,
+      description: "Minimalist gold jewellery for everyday elegance."
     }
   ];
 
   return (
-    <section id="collections" className="py-16 sm:py-24 md:py-28 lg:py-32 bg-neutral-900 overflow-hidden" aria-labelledby="collections-heading">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6">
-        {/* Elegant header - centered on mobile */}
+    <section id="collections" className="py-20 sm:py-28 bg-white" aria-labelledby="collections-heading">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           variants={staggerContainer}
-          className="text-center mb-10 sm:mb-14 md:mb-16"
+          className="text-center mb-16"
         >
           <motion.span
             variants={fadeInUp}
-            className="inline-block text-primary/80 text-[10px] sm:text-xs tracking-[0.25em] uppercase mb-4 sm:mb-5 pb-3 border-b border-primary/20"
+            className="inline-block text-primary text-[10px] sm:text-xs tracking-[0.25em] uppercase mb-4 pb-2 border-b border-primary/20"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Our Collections
@@ -622,70 +627,56 @@ function CollectionsSection() {
           <motion.h2
             id="collections-heading"
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-light text-white"
+            className="text-4xl sm:text-5xl md:text-6xl font-light text-neutral-900"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Explore Our <span className="text-primary font-medium">Premium</span> Collections
           </motion.h2>
         </motion.div>
 
-        {/* Cards container with elegant background */}
-        <div className="relative bg-neutral-800/30 backdrop-blur-sm rounded-2xl p-5 sm:p-8 md:p-10">
-          {/* Scrolling cards - staggered layout */}
-          <div className="flex items-end gap-3 sm:gap-4 overflow-x-auto pb-4 sm:pb-6 pt-4 scrollbar-hide -mx-1 px-1">
-            {collections.map((item, index) => {
-              // Staggered heights and rotations like the reference
-              const rotations = [-2, 1.5, -1, 2, -1.5];
-              const heights = ['h-44 sm:h-52 md:h-56', 'h-48 sm:h-56 md:h-64', 'h-52 sm:h-60 md:h-72', 'h-48 sm:h-56 md:h-64', 'h-44 sm:h-52 md:h-56'];
-              const marginTops = ['mt-4 sm:mt-6', 'mt-2 sm:mt-3', 'mt-0', 'mt-2 sm:mt-3', 'mt-4 sm:mt-6'];
-              
-              return (
-                <motion.article
-                  key={item.title}
-                  initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-                  className={`group flex-shrink-0 w-28 sm:w-36 md:w-44 lg:w-48 ${marginTops[index] || 'mt-4'}`}
-                  style={{ transform: `rotate(${rotations[index] || 0}deg)` }}
-                >
-                  <div className={`relative ${heights[index] || 'h-52 sm:h-64'} w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-white/5`}>
-                    <img
-                      src={item.image}
-                      alt={item.imageAlt}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" aria-hidden="true" />
-                    
-                    {/* New badge */}
-                    {item.category === "New" && (
-                      <span className="absolute top-3 left-3 bg-primary text-white text-[9px] sm:text-[10px] px-2 py-1 font-medium tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        NEW
-                      </span>
-                    )}
-                    
-                    {/* Title at bottom of card */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                      <span className="text-primary/70 text-[9px] uppercase tracking-wider block mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        {item.category}
-                      </span>
-                      <h3 className="text-white text-[11px] sm:text-xs font-medium uppercase tracking-wide leading-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                        {item.title}
-                      </h3>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-
-          {/* Elegant scroll indicator */}
-          <div className="flex justify-center items-center gap-3 mt-6 sm:mt-8">
-            <div className="w-8 h-0.5 bg-white/10 rounded-full" aria-hidden="true" />
-            <div className="w-8 h-0.5 bg-primary rounded-full" aria-hidden="true" />
-            <div className="w-8 h-0.5 bg-white/10 rounded-full" aria-hidden="true" />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+          {collections.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm mb-6 bg-[#8b1538]">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-white/90 backdrop-blur-sm text-primary text-[10px] uppercase tracking-widest px-3 py-1 font-medium rounded-sm">
+                    {item.category}
+                  </span>
+                </div>
+              </div>
+              <h3 className="text-xl font-medium text-neutral-900 mb-2 group-hover:text-primary transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>
+                {item.title}
+              </h3>
+              <p className="text-neutral-500 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+        
+        <div className="mt-20 text-center">
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-sm tracking-widest"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            VIEW ALL PIECES
+          </Button>
         </div>
       </div>
     </section>
