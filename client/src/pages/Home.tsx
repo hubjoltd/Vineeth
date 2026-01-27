@@ -52,12 +52,12 @@ function Header() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-neutral-100/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#8b1538] backdrop-blur-lg border-b border-white/10"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-2 sm:py-4 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-1 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[100px] sm:h-14 md:h-20 object-contain" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[80px] sm:h-20 md:h-24 object-contain brightness-0 invert" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -65,7 +65,7 @@ function Header() {
             <a 
               key={link.href}
               href={link.href} 
-              className="text-sm font-medium text-neutral-600 hover:text-primary transition-colors" 
+              className="text-sm font-medium text-white/90 hover:text-white transition-colors" 
               style={{ fontFamily: 'Poppins, sans-serif' }} 
               data-testid={`link-${link.label.toLowerCase().replace(' ', '-')}`}
             >
@@ -79,7 +79,7 @@ function Header() {
             href="https://www.instagram.com/vineethjewellers"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-600 hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
             data-testid="link-instagram"
             aria-label="Follow us on Instagram"
           >
@@ -87,7 +87,7 @@ function Header() {
           </a>
 
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center text-neutral-800 hover:text-primary transition-colors"
+            className="md:hidden w-10 h-10 flex items-center justify-center text-white hover:text-white/80 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
@@ -106,7 +106,7 @@ function Header() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="md:hidden bg-white absolute left-0 right-0 top-full shadow-xl border-t border-neutral-100"
+          className="md:hidden bg-[#8b1538] absolute left-0 right-0 top-full shadow-xl border-t border-white/10"
           role="navigation"
           aria-label="Mobile navigation"
         >
@@ -118,7 +118,7 @@ function Header() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="block py-4 text-lg font-light text-neutral-800 hover:text-primary transition-colors border-b border-neutral-100 last:border-0" 
+                className="block py-4 text-lg font-light text-white/90 hover:text-white transition-colors border-b border-white/10 last:border-0" 
                 style={{ fontFamily: "'Playfair Display', serif" }}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -131,7 +131,7 @@ function Header() {
               transition={{ delay: 0.3 }}
               className="pt-4"
             >
-              <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-400" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <span className="text-[10px] tracking-[0.2em] uppercase text-white/60" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Since 1965 • 60 Years of Trust
               </span>
             </motion.div>
@@ -230,8 +230,8 @@ function AboutSection() {
   return (
     <section id="about" className="relative" aria-labelledby="about-heading">
       <div className="flex flex-col lg:grid lg:grid-cols-2 lg:min-h-screen">
-        {/* Dark section with 60 Years badge */}
-        <div className="bg-neutral-900 relative py-16 sm:py-20 lg:py-0 order-1 lg:order-1">
+        {/* White section with animated 60 Years badge */}
+        <div className="bg-white relative py-16 sm:py-20 lg:py-0 order-1 lg:order-1">
           <div className="lg:absolute lg:inset-0 flex items-center justify-center p-8 sm:p-12 lg:p-16">
             <motion.div
               initial={{ opacity: shouldReduceMotion ? 1 : 0, scale: shouldReduceMotion ? 1 : 0.9 }}
@@ -240,16 +240,23 @@ function AboutSection() {
               transition={{ duration: shouldReduceMotion ? 0 : 1 }}
               className="relative flex flex-col items-center justify-center"
             >
-              {/* Elegant decorative lines */}
-              <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+              {/* Animated decorative lines */}
+              <motion.div 
+                className="absolute inset-0 flex items-center justify-center" 
+                aria-hidden="true"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
                 <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 border border-primary/20 rotate-45" />
-              </div>
+              </motion.div>
               <motion.div
                 initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.3 }}
-                className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-primary flex items-center justify-center relative z-10"
+                animate={{ scale: [1, 1.05, 1] }}
+                whileHover={{ scale: 1.1 }}
+                className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-primary flex items-center justify-center relative z-10 shadow-2xl rounded-sm"
               >
                 <div className="text-center">
                   <span className="text-5xl sm:text-6xl md:text-7xl font-light text-white" style={{ fontFamily: "'Playfair Display', serif" }}>60</span>
@@ -817,31 +824,32 @@ function VisitSection() {
 }
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-neutral-950 py-14 sm:py-16" role="contentinfo">
+    <footer className="bg-white py-14 sm:py-16 border-t border-neutral-100" role="contentinfo">
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        {/* Logo and tagline - centered on mobile */}
         <div className="text-center sm:text-left mb-10 sm:mb-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           <div className="mb-8 sm:mb-12">
-            <img src={logoImage} alt="Vineeth Jewellers" className="h-10 sm:h-12 mb-4 sm:mb-5 brightness-110 mx-auto sm:mx-0" />
+            <img src={logoImage} alt="Vineeth Jewellers" className="h-16 sm:h-20 mb-4 sm:mb-5 mx-auto sm:mx-0" />
             <p className="text-neutral-500 text-[13px] sm:text-sm leading-relaxed max-w-xs mx-auto sm:mx-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Where relationships matter more than revenue. A 60-year legacy of trust and craftsmanship.
             </p>
           </div>
 
           <div className="hidden sm:block">
-            <h4 className="text-white/90 font-medium mb-5 text-sm tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Quick Links</h4>
+            <h4 className="text-neutral-900 font-medium mb-5 text-sm tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Quick Links</h4>
             <nav className="space-y-3" aria-label="Footer navigation">
-              <a href="#about" className="block text-neutral-500 hover:text-white transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>About Us</a>
-              <a href="#visionaries" className="block text-neutral-500 hover:text-white transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Our Legacy</a>
-              <a href="#philosophy" className="block text-neutral-500 hover:text-white transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Philosophy</a>
-              <a href="#collections" className="block text-neutral-500 hover:text-white transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Collections</a>
-              <a href="#visit" className="block text-neutral-500 hover:text-white transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Visit Us</a>
+              <a href="#about" className="block text-neutral-500 hover:text-primary transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>About Us</a>
+              <a href="#visionaries" className="block text-neutral-500 hover:text-primary transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Our Legacy</a>
+              <a href="#philosophy" className="block text-neutral-500 hover:text-primary transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Philosophy</a>
+              <a href="#collections" className="block text-neutral-500 hover:text-primary transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Collections</a>
+              <a href="#visit" className="block text-neutral-500 hover:text-primary transition-colors text-[13px]" style={{ fontFamily: 'Poppins, sans-serif' }}>Visit Us</a>
             </nav>
           </div>
 
           <div className="hidden sm:block">
-            <h4 className="text-white/90 font-medium mb-5 text-sm tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Connect</h4>
+            <h4 className="text-neutral-900 font-medium mb-5 text-sm tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>Connect</h4>
             <a
               href="https://www.instagram.com/vineethjewellers"
               target="_blank"
@@ -856,13 +864,12 @@ function Footer() {
           </div>
         </div>
 
-        {/* Mobile-only social link */}
         <div className="sm:hidden text-center mb-8">
           <a
             href="https://www.instagram.com/vineethjewellers"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-neutral-400 hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-neutral-500 hover:text-primary transition-colors"
             aria-label="Follow Vineeth Jewellers on Instagram"
           >
             <Instagram size={18} aria-hidden="true" />
@@ -870,11 +877,11 @@ function Footer() {
           </a>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-neutral-600 text-[11px] sm:text-xs text-center sm:text-left tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            &copy; {new Date().getFullYear()} Vineeth Jewellers. All rights reserved.
+        <div className="pt-6 sm:pt-8 border-t border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p className="text-neutral-400 text-[11px] sm:text-xs text-center sm:text-left tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
+            &copy; {currentYear} Vineeth Jewellers. All rights reserved.
           </p>
-          <p className="text-neutral-700 text-[10px] sm:text-xs tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <p className="text-neutral-400 text-[10px] sm:text-xs tracking-wide" style={{ fontFamily: 'Poppins, sans-serif' }}>
             BIS Hallmarked • Government Approved
           </p>
         </div>
@@ -902,7 +909,7 @@ function WhatsAppButton() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-900">
+    <div className="min-h-screen bg-white">
       <Header />
       <main id="main-content">
         <HeroSection />
