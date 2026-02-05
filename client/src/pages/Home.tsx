@@ -8,7 +8,7 @@ import Autoplay from "embla-carousel-autoplay";
 import logoImage from "@assets/vineeth_logo_1768976897053.png";
 import srinivasImage from "@assets/Koshetty_Srinivas_1768976904631.png";
 import venkatnarayanaImage from "@assets/Koshetty_Venkatnarayana_1768976910813.png";
-import krishnaImage from "@assets/Koshetty_Krishna_1769067024409.png";
+import krishnaImage from "@assets/koshetty_Krishna_pic_1770276930444.png";
 import heroImage1 from "@assets/stock_images/elegant_gold_jewelle_a129e18d.jpg";
 import heroImage2 from "@assets/stock_images/elegant_gold_jewelle_3d5117ac.jpg";
 import heroImage3 from "@assets/stock_images/elegant_gold_jewelle_f6c1fccc.jpg";
@@ -57,7 +57,7 @@ function Header() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 py-1 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[80px] sm:h-20 md:h-24 object-contain brightness-0 invert" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[100px] sm:h-24 md:h-32 object-contain sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -132,7 +132,7 @@ function Header() {
               className="pt-4"
             >
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/60" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Since 1965 • 60 Years of Trust
+                Since 1956 • 70+ Years of Trust
               </span>
             </motion.div>
           </div>
@@ -179,7 +179,7 @@ function HeroSection() {
               className="inline-block mb-6 sm:mb-8"
             >
               <span className="text-primary text-[11px] sm:text-xs md:text-sm tracking-[0.25em] uppercase px-4 py-2 border border-primary/30 bg-primary/5 backdrop-blur-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Since 1965
+                Since 1956
               </span>
             </motion.div>
             <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-2 tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -259,7 +259,7 @@ function AboutSection() {
                 className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-primary flex items-center justify-center relative z-10 shadow-2xl rounded-sm"
               >
                 <div className="text-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-light text-white" style={{ fontFamily: "'Playfair Display', serif" }}>60</span>
+                  <span className="text-5xl sm:text-6xl md:text-7xl font-light text-white" style={{ fontFamily: "'Playfair Display', serif" }}>70+</span>
                   <span className="text-xs sm:text-sm block text-white/90 uppercase tracking-[0.2em] mt-1" style={{ fontFamily: 'Poppins, sans-serif' }}>Years</span>
                   <span className="text-[10px] sm:text-xs block text-white/70 uppercase tracking-[0.15em]" style={{ fontFamily: 'Poppins, sans-serif' }}>of Trust</span>
                 </div>
@@ -286,7 +286,7 @@ function AboutSection() {
                 <span className="font-medium text-primary">Moments</span> With Us
               </h2>
               <p className="text-neutral-600 leading-relaxed mb-4 sm:mb-5 text-[15px] sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                At Vineeth Jewellers, we believe every piece tells a story. For 60 years, we have been crafting not just jewellery, but memories that last generations.
+                At Vineeth Jewellers, we believe every piece tells a story. For 70+ years, we have been crafting not just jewellery, but memories that last generations.
               </p>
               <p className="text-neutral-500 leading-relaxed mb-8 sm:mb-10 text-[15px] sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Our commitment to transparency, quality craftsmanship, and building lasting relationships has made us a trusted name across Hyderabad.
@@ -317,7 +317,7 @@ function VisionariesSection() {
     {
       name: "Koshetty Venkatnarayana",
       role: "The Foundation",
-      years: "60 Years Ago",
+      years: "Founder",
       description: "Started with a simple belief: relationships matter more than revenue. His vision laid the foundation for a legacy built on trust.",
       image: venkatnarayanaImage,
       imageAlt: "Portrait of Koshetty Venkatnarayana, founder of Vineeth Jewellers",
@@ -334,12 +334,12 @@ function VisionariesSection() {
     },
     {
       name: "Koshetty Krishna",
-      role: "The Innovation",
-      years: "Present Day",
-      description: "Bridging tradition with modernity, bringing contemporary designs while preserving the craftsmanship that defines us.",
+      role: "The Expansion",
+      years: "Second Generation",
+      description: "Driving the family legacy with a focus on quality and modern craftsmanship. His dedication ensures every piece reflects our core values of trust and excellence.",
       image: krishnaImage,
-      imageAlt: "Koshetty Krishna, third generation leader continuing the family legacy",
-      quote: "Honor the past, embrace the future."
+      imageAlt: "Koshetty Krishna, second generation leader continuing the family legacy",
+      quote: "Quality is the best business plan."
     }
   ];
 
@@ -396,8 +396,8 @@ function VisionariesSection() {
                     <motion.img
                       src={person.image}
                       alt={person.imageAlt}
-                      className="w-full h-full object-cover object-top"
-                      whileHover={shouldReduceMotion ? {} : { scale: 1.08 }}
+                      className={`w-full h-full object-cover object-top ${person.name === "Koshetty Krishna" ? "rotate-[2deg] scale-[1.1]" : ""}`}
+                      whileHover={shouldReduceMotion ? {} : { scale: person.name === "Koshetty Krishna" ? 1.15 : 1.08 }}
                       transition={{ duration: 0.6 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent" aria-hidden="true" />
@@ -696,7 +696,7 @@ function VisitSection() {
       mapLink: "https://maps.app.goo.gl/tHhDAWHSymi4EfJ36"
     },
     {
-      name: "Habits Store",
+      name: "Abids Store",
       subtitle: "Heritage Collection",
       description: "A curated experience for discerning collectors.",
       mapLink: "https://maps.app.goo.gl/zTrCEqaRUW5DPRj47"
@@ -794,7 +794,7 @@ function VisitSection() {
             <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
           </div>
           <h3 className="text-xl sm:text-2xl font-light text-white mb-3 sm:mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Ready to Experience Our Legacy?
+            Ready to Experience Our 70-Year Legacy?
           </h3>
           <p className="text-neutral-400 mb-8 sm:mb-10 max-w-sm mx-auto text-[13px] sm:text-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Visit our store and discover why families trust us generation after generation.
@@ -822,9 +822,9 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="text-center sm:text-left mb-10 sm:mb-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           <div className="mb-8 sm:mb-12">
-            <img src={logoImage} alt="Vineeth Jewellers" className="h-16 sm:h-20 mb-4 sm:mb-5 mx-auto sm:mx-0" />
+            <img src={logoImage} alt="Vineeth Jewellers" className="h-16 sm:h-20 mb-4 sm:mb-5 mx-auto sm:mx-0 sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
             <p className="text-neutral-500 text-[13px] sm:text-sm leading-relaxed max-w-xs mx-auto sm:mx-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Where relationships matter more than revenue. A 60-year legacy of trust and craftsmanship.
+              Where relationships matter more than revenue. A 70-year legacy of trust and craftsmanship.
             </p>
           </div>
 
