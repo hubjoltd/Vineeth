@@ -55,9 +55,9 @@ function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-[#8b1538] backdrop-blur-lg border-b border-white/10"
       role="banner"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-1 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-0 flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 flex-shrink-0" data-testid="link-logo" aria-label="Vineeth Jewellers - Home">
-          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[100px] sm:h-24 md:h-32 object-contain sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
+          <img src={logoImage} alt="Vineeth Jewellers Logo" className="h-[120px] sm:h-32 md:h-40 object-contain sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
         </a>
         
         <nav className="hidden md:flex items-center gap-6 lg:gap-8" role="navigation" aria-label="Main navigation">
@@ -822,7 +822,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="text-center sm:text-left mb-10 sm:mb-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           <div className="mb-8 sm:mb-12">
-            <img src={logoImage} alt="Vineeth Jewellers" className="h-16 sm:h-20 mb-4 sm:mb-5 mx-auto sm:mx-0 sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
+            <img src={logoImage} alt="Vineeth Jewellers" className="h-24 sm:h-32 mb-4 sm:mb-5 mx-auto sm:mx-0 sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
             <p className="text-neutral-500 text-[13px] sm:text-sm leading-relaxed max-w-xs mx-auto sm:mx-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Where relationships matter more than revenue. A 70-year legacy of trust and craftsmanship.
             </p>
