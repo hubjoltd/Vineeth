@@ -659,6 +659,7 @@ function CollectionsSection() {
                     muted
                     playsInline
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                    onMouseOver={(e) => e.currentTarget.play()}
                   >
                     <source src={item.video} type="video/mp4" />
                   </video>
