@@ -20,13 +20,13 @@ import ringHandImage from "@assets/stock_images/elegant_hand_holding_d1529f3a.jp
 import goldRingImage from "@assets/stock_images/woman_wearing_gold_r_ad36c8b2.jpg";
 import hoopEarringsImage from "@assets/stock_images/gold_hoop_earrings_l_eb720eaa.jpg";
 import necklaceImage from "@assets/stock_images/woman_wearing_gold_c_36155047.jpg";
-import heroVideo from "@assets/hero-jewelry.mp4";
-import bangleVideo from "@assets/bangle_collection_1770451090045.mov";
-import bridalVideo from "@assets/Diamond_bridal_collection_1770451697285.mov";
-import goldChainVideo from "@assets/Gold_chain_collection_1770451706011.mov";
-import jadauVideo from "@assets/Jadau_kundan_collection_1770451721253.mov";
-import rajwadaVideo from "@assets/Rajwada_style_Jaipur_collection._mov_1770451721446.mov";
-import templeVideo from "@assets/Temple_jewellery_collection_1770451721520.mov";
+const heroVideo = "/videos/hero-jewelry.mp4";
+const bangleVideo = "/videos/bangle-collection.mp4";
+const bridalVideo = "/videos/diamond-bridal-collection.mp4";
+const goldChainVideo = "/videos/gold-chain-collection.mp4";
+const jadauVideo = "/videos/jadau-kundan-collection.mp4";
+const rajwadaVideo = "/videos/rajwada-collection.mp4";
+const templeVideo = "/videos/temple-jewellery-collection.mp4";
 
 const createFadeInUp = (shouldReduceMotion: boolean | null) => ({
   initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 },
