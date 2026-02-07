@@ -662,13 +662,7 @@ function CollectionsSection() {
                   >
                     <source src={item.video} type="video/mp4" />
                   </video>
-                ) : (
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                  />
-                )}
+                ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-white/90 backdrop-blur-sm text-primary text-[10px] uppercase tracking-widest px-3 py-1 font-medium rounded-sm">
