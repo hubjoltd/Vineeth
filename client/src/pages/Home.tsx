@@ -21,6 +21,12 @@ import goldRingImage from "@assets/stock_images/woman_wearing_gold_r_ad36c8b2.jp
 import hoopEarringsImage from "@assets/stock_images/gold_hoop_earrings_l_eb720eaa.jpg";
 import necklaceImage from "@assets/stock_images/woman_wearing_gold_c_36155047.jpg";
 import heroVideo from "@assets/hero-jewelry.mp4";
+import bangleVideo from "@assets/bangle_collection_1770451090045.mov";
+import bridalVideo from "@assets/Diamond_bridal_collection_1770451697285.mov";
+import goldChainVideo from "@assets/Gold_chain_collection_1770451706011.mov";
+import jadauVideo from "@assets/Jadau_kundan_collection_1770451721253.mov";
+import rajwadaVideo from "@assets/Rajwada_style_Jaipur_collection._mov_1770451721446.mov";
+import templeVideo from "@assets/Temple_jewellery_collection_1770451721520.mov";
 
 const createFadeInUp = (shouldReduceMotion: boolean | null) => ({
   initial: shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 },
@@ -570,40 +576,40 @@ function CollectionsSection() {
   
   const collections = [
     {
-      title: "The Roseleen Ring",
-      category: "Rings",
-      image: ringHandImage,
-      description: "A blooming masterpiece in 22kt gold."
+      title: "Rajwada Collection",
+      category: "Jaipur Style",
+      video: rajwadaVideo,
+      description: "Traditional royal designs from the heart of Jaipur."
     },
     {
-      title: "The Zoe Earrings",
-      category: "Earrings",
-      image: hoopEarringsImage,
-      description: "Modern hoops for the contemporary woman."
+      title: "Bangle Collection",
+      category: "Handcrafted",
+      video: bangleVideo,
+      description: "Intricately designed bangles for every occasion."
     },
     {
-      title: "The Hoch Necklace",
-      category: "Necklaces",
-      image: necklaceImage,
-      description: "Intricate craftsmanship in every link."
-    },
-    {
-      title: "Rajwada Bangles",
-      category: "Bangles",
-      image: banglesImage,
-      description: "Traditional royal designs for special occasions."
-    },
-    {
-      title: "Bridal Heritage",
+      title: "Diamond Bridal",
       category: "Wedding Edit",
-      image: bridalImage,
-      description: "Timeless pieces for your most special day."
+      video: bridalVideo,
+      description: "Timeless diamond pieces for your special day."
     },
     {
-      title: "Modern Muse",
-      category: "Modern Edit",
-      image: modernImage,
-      description: "Minimalist gold jewellery for everyday elegance."
+      title: "Jadau Kundan",
+      category: "Heritage",
+      video: jadauVideo,
+      description: "The fine art of traditional gemstone setting."
+    },
+    {
+      title: "Temple Jewellery",
+      category: "Traditional",
+      video: templeVideo,
+      description: "Divine designs inspired by ancient heritage."
+    },
+    {
+      title: "Gold Chain Collection",
+      category: "Daily Wear",
+      video: goldChainVideo,
+      description: "Elegant and durable chains for everyday luxury."
     }
   ];
 
@@ -646,11 +652,23 @@ function CollectionsSection() {
               className="group cursor-pointer"
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm mb-6 bg-[#8b1538]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                />
+                {item.video ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
+                  >
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-4 left-4">
                   <span className="bg-white/90 backdrop-blur-sm text-primary text-[10px] uppercase tracking-widest px-3 py-1 font-medium rounded-sm">
