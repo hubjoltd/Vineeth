@@ -6,9 +6,9 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import logoImage from "@assets/vineeth_logo_1768976897053.png";
-import srinivasImage from "@assets/Koshetty_Srinivas_1768976904631.png";
-import venkatnarayanaImage from "@assets/Koshetty_Venkatnarayana_1768976910813.png";
-import krishnaImage from "@assets/koshetty_Krishna_pic_1770276930444.png";
+import srinivasImage from "@assets/Koshetty_Srinivas_1768976904631_optimized.jpg";
+import venkatnarayanaImage from "@assets/Koshetty_Venkatnarayana_1768976910813_optimized.jpg";
+import krishnaImage from "@assets/koshetty_Krishna_pic_1770276930444_optimized.jpg";
 import heroImage1 from "@assets/stock_images/elegant_gold_jewelle_a129e18d.jpg";
 import heroImage2 from "@assets/stock_images/elegant_gold_jewelle_3d5117ac.jpg";
 import heroImage3 from "@assets/stock_images/elegant_gold_jewelle_f6c1fccc.jpg";
@@ -402,6 +402,7 @@ function VisionariesSection() {
                     <motion.img
                       src={person.image}
                       alt={person.imageAlt}
+                      loading="lazy"
                       className={`w-full h-full object-cover object-top ${person.name === "Koshetty Krishna" ? "rotate-[2deg] scale-[1.1]" : ""}`}
                       whileHover={shouldReduceMotion ? {} : { scale: person.name === "Koshetty Krishna" ? 1.15 : 1.08 }}
                       transition={{ duration: 0.6 }}
@@ -681,16 +682,6 @@ function CollectionsSection() {
           ))}
         </div>
         
-        <div className="mt-20 text-center">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-sm tracking-widest"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >
-            VIEW ALL PIECES
-          </Button>
-        </div>
       </div>
     </section>
   );
@@ -835,7 +826,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="text-center sm:text-left mb-10 sm:mb-0 sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           <div className="mb-8 sm:mb-12">
-            <img src={logoImage} alt="Vineeth Jewellers" className="h-24 sm:h-32 mb-4 sm:mb-5 mx-auto sm:mx-0 sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
+            <img src={logoImage} alt="Vineeth Jewellers" className="h-36 sm:h-44 mb-4 sm:mb-5 mx-auto sm:mx-0 sepia-[.8] saturate-[3] hue-rotate-[0deg] brightness-[1.2]" />
             <p className="text-neutral-500 text-[13px] sm:text-sm leading-relaxed max-w-xs mx-auto sm:mx-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Where relationships matter more than revenue. A 70-year legacy of trust and craftsmanship.
             </p>
