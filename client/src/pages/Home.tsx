@@ -803,15 +803,17 @@ function VisitSection() {
           <p className="text-neutral-400 mb-8 sm:mb-10 max-w-sm mx-auto text-[13px] sm:text-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
             Visit our store and discover why families trust us generation after generation.
           </p>
-          <Button
-            size="lg"
-            className="bg-white hover:bg-white/90 text-neutral-900 px-10 sm:px-12 py-6 text-sm sm:text-base tracking-wide w-full sm:w-auto"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-            data-testid="button-contact"
-            aria-label="Contact us to schedule a visit"
-          >
-            CONTACT US TODAY
-          </Button>
+          <a href="https://wa.me/917331116771?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Vineeth%20Jewellers." target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="bg-white hover:bg-white/90 text-neutral-900 px-10 sm:px-12 py-6 text-sm sm:text-base tracking-wide w-full sm:w-auto"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+              data-testid="button-contact"
+              aria-label="Contact us on WhatsApp"
+            >
+              CONTACT US TODAY
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
