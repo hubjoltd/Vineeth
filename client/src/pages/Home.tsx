@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import logoImage from "@assets/vineeth_logo_1768976897053.png";
-import srinivasImage from "@assets/Koshetty_Srinivas_1768976904631_optimized.jpg";
+import srinivasImage from "@assets/Koshetty_Srinivas_new_optimized.jpg";
 import venkatnarayanaImage from "@assets/Koshetty_Venkatnarayana_1768976910813_optimized.jpg";
 import krishnaImage from "@assets/koshetty_Krishna_pic_1770276930444_optimized.jpg";
 import heroImage1 from "@assets/stock_images/elegant_gold_jewelle_a129e18d.jpg";
